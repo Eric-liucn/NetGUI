@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "netgui",
+    "name": "Netgui",
+    "description": "A GUI creater for SpongeForge",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "EricLiu"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
