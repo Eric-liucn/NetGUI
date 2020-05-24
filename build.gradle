@@ -32,9 +32,11 @@ minecraft {
 
 repositories {
     mavenCentral()
+    maven { url = "http://chickenbones.net/maven" }
 }
 
 dependencies {
+    compile 'codechicken:CodeChickenLib:1.12.2-3.2.3.358:universal'
 }
 
 processResources {

@@ -1,10 +1,13 @@
 package com.github.ericliucn.netgui.items;
 
 import com.github.ericliucn.netgui.Main;
+import com.github.ericliucn.netgui.client.gui.MainGUI;
 import com.github.ericliucn.netgui.registry.IHasModel;
 import com.github.ericliucn.netgui.registry.ModItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -29,5 +32,12 @@ public class ItemMainGUI extends Item implements IHasModel {
         Main.proxy.registerModel(this, 0, modelResourceLocation);
     }
 
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        if (worldIn.isRemote){
+            Minecraft.getMinecraft().displayGuiScreen(new MainGUI());
+        }
 
+        return super.onItemRightClick(worldIn, playerIn, handIn);
+    }
 }
