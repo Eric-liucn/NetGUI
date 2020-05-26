@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public class NetGuiHandler  implements IGuiHandler {
 
     public NetGuiHandler(){
-        NetworkRegistry.INSTANCE.registerGuiHandler(Main.INSTANCE, this);
+
     }
 
     public static final int GUI_MAIN = 1;

@@ -28,8 +28,8 @@ public class MainGUI extends GuiScreen {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 
         //calculate start point
-        int guiTop = (height - ySize) / 2;
-        int guiLeft = (width - xSize) / 2;
+        int guiTop = (int) ((height - ySize) / 2 / scaleY);
+        int guiLeft = (int) ((width - xSize) / 2 / scaleX);
 
         this.mc.renderEngine.bindTexture(baseGUI);
         int baseGUIID = this.mc.renderEngine.getTexture(baseGUI).getGlTextureId();
@@ -45,12 +45,12 @@ public class MainGUI extends GuiScreen {
         {
             GlStateManager.bindTexture(baseGUIID);
             GlStateManager.scale(scaleX, scaleY, 1D);
-            drawTexturedModalRect((int)(guiLeft /scaleX), (int)(guiTop /scaleY), 0, 0, baseGUIWidth, baseGUIHeight);
+            drawTexturedModalRect(guiLeft, guiTop, 0, 0, baseGUIWidth, baseGUIHeight);
         }
         GlStateManager.popMatrix();
 
         super.drawScreen(mouseX, mouseY, partialTicks);
-        Mouse.setGrabbed(false);
+        //Mouse.setGrabbed(false);
     }
 
     @Override
