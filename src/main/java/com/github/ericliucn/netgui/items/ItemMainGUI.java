@@ -1,6 +1,7 @@
 package com.github.ericliucn.netgui.items;
 
 import com.github.ericliucn.netgui.Main;
+import com.github.ericliucn.netgui.client.gui.MainGUI;
 import com.github.ericliucn.netgui.client.gui.MainGUIContainer;
 import com.github.ericliucn.netgui.registry.IHasModel;
 import com.github.ericliucn.netgui.registry.ModItems;
@@ -11,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.FMLClientHandler;
 
 import java.util.Objects;
 
@@ -33,7 +35,7 @@ public class ItemMainGUI extends Item implements IHasModel {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.isRemote){
-            playerIn.openGui(Main.INSTANCE, 1, worldIn, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ());
+            Minecraft.getMinecraft().displayGuiScreen(new MainGUI(400, 200));
         }
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
